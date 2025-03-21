@@ -20,16 +20,28 @@
                     <li><i class="icon-list.svg"></i>Measuring to ensure updates are a success</li>
                     <li><i class="icon-list.svg"></i>And much more!</li>
                 </ul>
-                <form action="#">
-                    <input type="text" placeholder="email@company.com"
-                    <button type="button">Subscribe to monthly newsletter</button>
-                </form>
+
+                <form id="sign_up" class="signup">
+                    <picture>
+                        <source media="(min-width: 48rem)" srcset="C:\STI Files\MIDTERM\ChallengeMidterm\illustration-sign-up-desktop.svg">
+                        <source media="(min-width: 47.9rem)" srcset="C:\STI Files\MIDTERM\ChallengeMidterm\illustration-sign-up-mobile.svg">
+                    </picture>
+           
+
+                <div class="error">
+                    <label for="email">Email address</label>
+                    <span class="error-message"id="error-message"></span>
+                </div>
+                    <input type="text" id="email" name="email" placeholder="email@company.com"
+                    <button class="sign_up_btn">Subscribe to monthly newsletter</button>
+                
             </div>
             <div class="imgs">
                 <img src="./illustration-sign-up-desktop.svg" alt="">
             </div>
         </div>
     </div>
+</form>
     
 </body>
 </html>

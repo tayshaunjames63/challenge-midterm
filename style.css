@@ -18,14 +18,14 @@ body{
     justify-content: center;
     height: 100vh;
     background-color: var(--blue-dark);
-    font-family: "roboto", sans-serif;
+    font-family: "roboto";
 }
 
 .container_form{
     background-color: var(--white);
     border-radius: 10px;
     box-shadow: 5px 10px 5px;
-    padding: 1.5;
+    padding: 1.5rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -77,4 +77,22 @@ body{
     width: 100%;
     outline: none;
     margin: 0.5rem 0;
+    padding: 0.9rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--blue-dark);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.main_content button{
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    background-color: var(--white);
+    color: var(--white);
+    font-family: inherit;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
 }
