@@ -1,4 +1,5 @@
-* {
+
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -6,10 +7,10 @@
 
 :root{
     --primary-color: hsl(4, 100%, 67%);
-    --blue-dark: hsl(234, 29%, 20%);
-    --blue-light: hsl(235, 18%, 26%);
-    --grey: hsl(0, 0%,58%);
-    --white: hsl(0, 0%, 100%);
+    --dark: hsl(234, 29%, 20%);
+    --black-dark: hsl(235, 18%, 26%);
+    --gray: hsl(231, 7%, 60%);
+    --white: hsl(0,0,100%);
 }
 
 body{
@@ -17,37 +18,41 @@ body{
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: var(--blue-dark);
-    font-family: "roboto";
+    background-color: hsl(235, 18%, 26%);
+    font-family: "roboto", sans-serif;
 }
 
-.container_form{
-    background-color: var(--white);
+.wrap{
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 5px 10px 5px;
-    padding: 1.5rem;
+    box-shadow: 05px 10px 5px rgba(0,0,0,0.5);
     width: 100%;
     height: 100%;
     display: flex;
+    padding: 1.5rem;
 }
 
-.container_form .main_content{
+.wrap .main_content{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.wrap.hide{
+    display: none;
 }
 
 .main_content{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0.1rem;
+    padding: 0 1rem;
     width: 60%;
 }
 
 .main_content h2{
     font-size: 3rem;
-    columns: var(--blue-dark);
+    color: hsl(235, 18%, 26%);
     margin: 1rem 0;
 }
 
@@ -57,7 +62,7 @@ body{
 }
 
 .main_content ul{
-    list-style: none;
+    list-style-type: none;
     margin: 1rem 0;
 }
 
@@ -65,34 +70,130 @@ body{
     margin: 0.8rem 0;
 }
 
-.main_content ul li i{
-    background-color: var(--primary-color);
-    color: var(--white);
+.main_content ul li img{
+    background-color: hsl(4, 100%, 67%);
+    color: white;
     border-radius: 50%;
     margin-right: 0.5rem;
     padding: 0.1rem;
+}
+
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content label{
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.main_content .error p{
+    font: 0.9rem;
+    font-weight: 500;
+    color: hsl(4, 100%, 67%);
 }
 
 .main_content input{
     width: 100%;
     outline: none;
     margin: 0.5rem 0;
-    padding: 0.9rem 0.5rem;
+    padding: 0.9rem 0;
     border-radius: 5px;
-    border: 1px solid var(--blue-dark);
+    border: 1px solid hsl(235, 18%, 26%);
     font-family: inherit;
     font-size: 1rem;
-}
+} 
 
 .main_content button{
     outline: none;
     border: none;
     margin: 1rem 0;
-    background-color: var(--white);
-    color: var(--white);
+    background-color: hsl(235, 18%, 26%);
+    color: white;
     font-family: inherit;
     font-size: 0.9rem;
+    padding: 0.9rem 0;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
+}
+
+.main_content button:hover{
+    background-color: hsl(4, 100%, 67%);
+}
+
+.imageContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.success{
+    width: 450px;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px black;
+}
+
+.success h2{
+    color: hsl(235, 18%, 26%);
+    font-size: 3rem;
+    margin: 1rem 0;
+}
+
+.success p{
+    line-height: 1.5;
+}
+
+.success button{
+    outline: none;
+    border: none;
+    margin: 1rem 0;
+    background-color: hsl(4, 100%, 67%);
+    color: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.9rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.success.hide{
+    display: none;
+}
+
+.success button:active,
+.main_content button:active{
+    transform: scale(0.98rem);
+
+}
+
+
+@media(max-width: 768px){
+    .wrap{
+        flex-direction: column-reverse;
+        padding: 0;
+        margin: 0;
+        height: 750px;
+    }
+
+    .main_content h2{
+        font-size: 2.4rem;
+        margin: 2rem 0;
+    }
+
+    .main_content {
+        display: flex;
+        width: 100%;
+    }
+
+    .imageContainer{
+        content: url('./assets/images/illustration-sign-up-mobile.svg');
+        width: 100%;
+
+    }
 }
