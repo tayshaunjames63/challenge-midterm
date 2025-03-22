@@ -1,54 +1,37 @@
-const form = document.getElementById('form');
-const emailErrorMessage = document.getElementById('error-message');
-const successState = document.getElementById('success-state');
-const emailHolder = document.getElementById('email');
-const userEmail = document.querySelector('.user-email');
-const dismissBtn = document.querySelector('.close-btn')
+document.addEventListener("DOMContentLoaded", function() { 
+  const signUpForm = document.getElementById("signup-form"); 
+  const errorMessage = document.getElementById("error-message");
+  const successMessage = document.getElementById("success-state");
+  const emailInput = document.getElementById("email");
+  const userEmailDisplay = document.querySelector(".user-email");
+  const dismissButton = document.querySelector(".close-btn");
+  const subscribeButton = document.querySelector(".signup-btn");
 
-function validateEmail(email) {
-    if (!email) {
-      return 'Email is required';
-    }
-
-    const isValidEmail = /^\S+@\S+$/g
-    if (email.trim() && !isValidEmail.test(email)) {
-      return 'Please enter a valid email';
-    }
-   
+  function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
-const handleSubmit = function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(e.target);
-    const email = formData.get('email');
-    
-    const emailError = validateEmail(email);
-    
-    if(emailError) {
-      emailErrorMessage.innerText = emailError;
-      emailHolder.style.border = "1px solid hsl(4, 100%, 67%)";
-      emailHolder.style.color = "hsl(4, 100%, 67%)";
-      emailHolder.style.backgroundColor = "hsl(4, 100%, 90%)";
-      
-    }
-    else {
-      emailErrorMessage.innerText = '';
-      form.classList.add('hidden');
-      successState.classList.remove('hidden');
-      userEmail.textContent = email;
-      userEmail.style.fontWeight = "bold";
-    }
+  subscribeButton.addEventListener("click", function(event) {
+      event.preventDefault(); 
+      const email = emailInput.value.trim();
 
-};
+      if (validateEmail(email)) {
+          userEmailDisplay.innerText = email;
+          signUpForm.classList.add("hidden");
+          successMessage.classList.remove("hidden");
+          emailInput.style.border = "1px solid #ddd"; 
+          errorMessage.innerText = "";
+      } else {
+          errorMessage.innerText = "Valid email required";
+          emailInput.style.border = "1px solid hsl(4, 100%, 67%)"; 
+      }
+  });
 
-form.addEventListener('submit', handleSubmit);
-
-dismissBtn.addEventListener('click', function() {
-  successState.classList.add('hidden');
-  form.classList.remove('hidden');
-  emailHolder.value = '';
-  emailHolder.style.backgroundColor = "hsl(0, 0%, 100%)";
-  emailHolder.style.border = "1px solid hsl(0, 0%,58%)";
-
+  dismissButton.addEventListener("click", function() {
+      successMessage.classList.add("hidden");
+      signUpForm.classList.remove("hidden");
+      emailInput.value = "";
+      errorMessage.innerText = "";
+      emailInput.style.border = "1px solid #ddd"; 
+  });
 });
